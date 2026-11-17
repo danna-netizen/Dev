@@ -122,7 +122,7 @@ def close_db(_exc):
         db.close()
 
 
-SEED_VERSION = 3  # bump when the schema or demo data changes: the database is rebuilt
+SEED_VERSION = 4  # bump when the schema or demo data changes: the database is rebuilt
 
 
 def init_db():
