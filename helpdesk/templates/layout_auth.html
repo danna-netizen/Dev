@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon, flashes %}
+{% block body_class %}auth{% endblock %}
+{% block body %}
+<main class="auth__wrap">
+  <a class="brand brand--dark" href="{{ url_for('index') }}">
+    <span class="brand__mark">{{ icon('buoy') }}</span>
+    <span class="brand__name">Dami Soporte</span>
+  </a>
+  <section class="auth__panel">
+    {{ flashes() }}
+    {% block content %}{% endblock %}
+  </section>
+  <p class="auth__alt">{% block alt %}{% endblock %}</p>
+</main>
+{% endblock %}

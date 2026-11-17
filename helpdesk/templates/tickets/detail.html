@@ -1,0 +1,59 @@
+{% extends "layout_app.html" %}
+{% from "_macros.html" import icon, status_pill, priority_tag, copy_email %}
+{% block title %}{{ t['id']|folio }} {{ t['subject'] }}{% endblock %}
+{% block content %}
+<a class="back" href="{{ url_for('tickets') }}">{{ icon('back') }}Mis tickets</a>
+<header class="page-head page-head--ticket">
+  <div>
+    <div class="page-head__line">
+      <p class="page-head__folio num">{{ t['id']|folio }}</p>
+      {{ status_pill(t['status']) }}
+    </div>
+    <h1>{{ t['subject'] }}</h1>
+  </div>
+</header>
+
+<div class="ticket">
+  <article class="panel ticket__body">
+    <h2 class="panel__title">Descripción</h2>
+    <div class="prose">{{ t['description'] }}</div>
+    <p class="ticket__stamp muted">Enviado el {{ t['created_at']|fecha }}</p>
+  </article>
+
+  <aside class="ticket__side">
+    <section class="panel">
+      <h2 class="panel__title">Seguimiento</h2>
+      {{ copy_email(t['tracking_email'], 'mailbox--compact') }}
+      <p class="side__note">Escribe a este correo si tienes dudas o quejas sobre este ticket.</p>
+
+      <details class="edit-mail" {% if email_error %}open{% endif %}>
+        <summary>{{ icon('pencil') }}Cambiar dirección</summary>
+        <form method="post" action="{{ url_for('change_tracking_email', ticket_id=t['id']) }}" class="form" novalidate data-busy>
+          <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+          <div class="field">
+            <label for="local_part">Nombre antes de la @</label>
+            <div class="affix {% if email_error %}affix--error{% endif %}">
+              <input id="local_part" name="local_part" required maxlength="40" spellcheck="false" autocapitalize="off"
+                     value="{{ local_attempt if email_error else t['tracking_email'].split('@')[0] }}"
+                     {% if email_error %}aria-invalid="true" aria-describedby="local-error"{% endif %}>
+              <span class="affix__suffix">@{{ TRACKING_DOMAIN }}</span>
+            </div>
+            {% if email_error %}<p class="field__error" id="local-error">{{ icon('alert') }}{{ email_error }}</p>{% endif %}
+          </div>
+          <button class="btn btn--secondary btn--sm" type="submit"><span>Guardar dirección</span></button>
+        </form>
+      </details>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel__title">Detalles</h2>
+      <dl class="meta">
+        <div><dt>Categoría</dt><dd>{{ t['category'] }}</dd></div>
+        <div><dt>Prioridad</dt><dd>{{ priority_tag(t['priority']) }}</dd></div>
+        <div><dt>Creado</dt><dd class="num">{{ t['created_at']|fecha }}</dd></div>
+        <div><dt>Actualizado</dt><dd class="num">{{ t['updated_at']|fecha }}</dd></div>
+      </dl>
+    </section>
+  </aside>
+</div>
+{% endblock %}

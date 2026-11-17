@@ -1,0 +1,10 @@
+{% extends "layout_app.html" if g.user else "layout_auth.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<section class="empty">
+  <p class="empty__code num">{{ code }}</p>
+  <h1>{{ title }}</h1>
+  <p>{{ message }}</p>
+  <a class="btn btn--primary" href="{{ url_for('index') }}">Volver al inicio</a>
+</section>
+{% endblock %}

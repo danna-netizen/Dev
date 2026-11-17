@@ -1,0 +1,68 @@
+{% extends "layout_app.html" %}
+{% from "_macros.html" import icon, field_error, aria_err, high_priority_notice %}
+{% block title %}Nuevo ticket{% endblock %}
+{% block width %}main__inner--form{% endblock %}
+{% block content %}
+<a class="back" href="{{ url_for('tickets') }}">{{ icon('back') }}Mis tickets</a>
+<header class="page-head">
+  <div>
+    <h1>Nuevo ticket</h1>
+    <p class="page-head__sub">Describe el problema y te asignamos un correo de seguimiento para este caso.</p>
+  </div>
+</header>
+
+{% if errors %}
+<div class="notice notice--error" role="alert">{{ icon('alert') }}<span>Revisa {{ 'el campo marcado' if errors|length == 1 else 'los campos marcados' }} antes de enviar.</span></div>
+{% endif %}
+
+<form method="post" class="form panel" novalidate data-busy>
+  <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+
+  <div class="field">
+    <label for="subject">Asunto</label>
+    <input id="subject" name="subject" maxlength="120" required value="{{ form.get('subject', '') }}" placeholder="Ej. No puedo descargar mi factura de octubre" {{ aria_err(errors, 'subject') }} {% if not errors %}autofocus{% endif %}>
+    {{ field_error(errors, 'subject') }}
+  </div>
+
+  <div class="form__row">
+    <div class="field">
+      <label for="category">Categoría</label>
+      <select id="category" name="category" required {{ aria_err(errors, 'category') }}>
+        <option value="" {% if not form.get('category') %}selected{% endif %} disabled>Elige una categoría</option>
+        {% for c in categories %}<option {% if form.get('category') == c %}selected{% endif %}>{{ c }}</option>{% endfor %}
+      </select>
+      {{ field_error(errors, 'category') }}
+    </div>
+
+    <fieldset class="field">
+      <legend>Prioridad</legend>
+      <div class="segmented" role="radiogroup">
+        {% for key, label in PRIORITIES.items() %}
+        <label class="segmented__opt">
+          <input type="radio" name="priority" value="{{ key }}" {% if form.get('priority') == key %}checked{% endif %}>
+          <span>{{ label }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      {{ field_error(errors, 'priority') }}
+    </fieldset>
+  </div>
+
+  {{ high_priority_notice(SALES_EMAIL, hidden=(form.get('priority') != 'alta')) }}
+
+  <div class="field">
+    <label for="description">Descripción del problema</label>
+    <textarea id="description" name="description" rows="8" maxlength="4000" required data-count="description-count" aria-describedby="description-hint {% if errors.get('description') %}description-error{% endif %}" {% if errors.get('description') %}aria-invalid="true"{% endif %}>{{ form.get('description', '') }}</textarea>
+    <div class="field__foot">
+      <p class="field__hint" id="description-hint">Qué pasó, cuándo empezó y qué esperabas que pasara. Si ves un mensaje de error, cópialo tal cual.</p>
+      <span class="field__count num" id="description-count" aria-live="polite"></span>
+    </div>
+    {{ field_error(errors, 'description') }}
+  </div>
+
+  <div class="form__actions">
+    <a class="btn btn--ghost" href="{{ url_for('tickets') }}">Cancelar</a>
+    <button class="btn btn--primary" type="submit"><span>Enviar ticket</span></button>
+  </div>
+</form>
+{% endblock %}

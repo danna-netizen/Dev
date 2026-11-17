@@ -1,0 +1,693 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-16T03:26:42.670Z",
+  "title": "Design System: Dami Soporte",
+  "extensions": {
+    "colorMeta": {
+      "rail": {
+        "role": "secondary",
+        "displayName": "Riel Pizarra",
+        "canonical": "oklch(0.28 0.015 235)",
+        "tonalRamp": [
+          "oklch(0.15 0.007 235)",
+          "oklch(0.27 0.010 235)",
+          "oklch(0.39 0.012 235)",
+          "oklch(0.51 0.014 235)",
+          "oklch(0.63 0.013 235)",
+          "oklch(0.75 0.011 235)",
+          "oklch(0.87 0.009 235)",
+          "oklch(0.95 0.007 235)"
+        ]
+      },
+      "rail-hover": {
+        "role": "secondary",
+        "displayName": "Riel Pizarra Hover",
+        "canonical": "oklch(0.33 0.016 235)",
+        "tonalRamp": [
+          "oklch(0.15 0.008 235)",
+          "oklch(0.27 0.010 235)",
+          "oklch(0.39 0.013 235)",
+          "oklch(0.51 0.015 235)",
+          "oklch(0.63 0.014 235)",
+          "oklch(0.75 0.012 235)",
+          "oklch(0.87 0.009 235)",
+          "oklch(0.95 0.008 235)"
+        ]
+      },
+      "rail-active": {
+        "role": "secondary",
+        "displayName": "Riel Pizarra Activo",
+        "canonical": "oklch(0.37 0.018 235)",
+        "tonalRamp": [
+          "oklch(0.15 0.009 235)",
+          "oklch(0.27 0.012 235)",
+          "oklch(0.39 0.014 235)",
+          "oklch(0.51 0.017 235)",
+          "oklch(0.63 0.016 235)",
+          "oklch(0.75 0.013 235)",
+          "oklch(0.87 0.011 235)",
+          "oklch(0.95 0.009 235)"
+        ]
+      },
+      "rail-ink": {
+        "role": "neutral",
+        "displayName": "Tinta del Riel",
+        "canonical": "oklch(0.97 0.004 235)",
+        "tonalRamp": [
+          "oklch(0.15 0.002 235)",
+          "oklch(0.27 0.003 235)",
+          "oklch(0.39 0.003 235)",
+          "oklch(0.51 0.004 235)",
+          "oklch(0.63 0.004 235)",
+          "oklch(0.75 0.003 235)",
+          "oklch(0.87 0.002 235)",
+          "oklch(0.95 0.002 235)"
+        ]
+      },
+      "rail-muted": {
+        "role": "neutral",
+        "displayName": "Tinta Apagada del Riel",
+        "canonical": "oklch(0.80 0.012 235)",
+        "tonalRamp": [
+          "oklch(0.15 0.006 235)",
+          "oklch(0.27 0.008 235)",
+          "oklch(0.39 0.010 235)",
+          "oklch(0.51 0.011 235)",
+          "oklch(0.63 0.011 235)",
+          "oklch(0.75 0.009 235)",
+          "oklch(0.87 0.007 235)",
+          "oklch(0.95 0.006 235)"
+        ]
+      },
+      "rail-avatar": {
+        "role": "secondary",
+        "displayName": "Avatar del Riel",
+        "canonical": "oklch(0.42 0.018 235)",
+        "tonalRamp": [
+          "oklch(0.15 0.009 235)",
+          "oklch(0.27 0.012 235)",
+          "oklch(0.39 0.014 235)",
+          "oklch(0.51 0.017 235)",
+          "oklch(0.63 0.016 235)",
+          "oklch(0.75 0.013 235)",
+          "oklch(0.87 0.011 235)",
+          "oklch(0.95 0.009 235)"
+        ]
+      },
+      "rail-glint": {
+        "role": "primary",
+        "displayName": "Destello Verde Azulado",
+        "canonical": "oklch(0.82 0.10 180)",
+        "tonalRamp": [
+          "oklch(0.15 0.049 180)",
+          "oklch(0.27 0.064 180)",
+          "oklch(0.39 0.080 180)",
+          "oklch(0.51 0.095 180)",
+          "oklch(0.63 0.090 180)",
+          "oklch(0.75 0.075 180)",
+          "oklch(0.87 0.059 180)",
+          "oklch(0.95 0.049 180)"
+        ]
+      },
+      "brand-mark": {
+        "role": "primary",
+        "displayName": "Cuadro de Marca",
+        "canonical": "oklch(0.70 0.11 180)",
+        "tonalRamp": [
+          "oklch(0.15 0.054 180)",
+          "oklch(0.27 0.071 180)",
+          "oklch(0.39 0.088 180)",
+          "oklch(0.51 0.104 180)",
+          "oklch(0.63 0.099 180)",
+          "oklch(0.75 0.082 180)",
+          "oklch(0.87 0.065 180)",
+          "oklch(0.95 0.054 180)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Verde Azulado Medio",
+        "canonical": "oklch(0.50 0.10 188)",
+        "tonalRamp": [
+          "oklch(0.15 0.049 188)",
+          "oklch(0.27 0.064 188)",
+          "oklch(0.39 0.080 188)",
+          "oklch(0.51 0.095 188)",
+          "oklch(0.63 0.090 188)",
+          "oklch(0.75 0.075 188)",
+          "oklch(0.87 0.059 188)",
+          "oklch(0.95 0.049 188)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Verde Azulado Hover",
+        "canonical": "oklch(0.44 0.10 188)",
+        "tonalRamp": [
+          "oklch(0.15 0.049 188)",
+          "oklch(0.27 0.064 188)",
+          "oklch(0.39 0.080 188)",
+          "oklch(0.51 0.095 188)",
+          "oklch(0.63 0.090 188)",
+          "oklch(0.75 0.075 188)",
+          "oklch(0.87 0.059 188)",
+          "oklch(0.95 0.049 188)"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Verde Azulado Suave",
+        "canonical": "oklch(0.95 0.03 188)",
+        "tonalRamp": [
+          "oklch(0.15 0.015 188)",
+          "oklch(0.27 0.019 188)",
+          "oklch(0.39 0.024 188)",
+          "oklch(0.51 0.028 188)",
+          "oklch(0.63 0.027 188)",
+          "oklch(0.75 0.022 188)",
+          "oklch(0.87 0.018 188)",
+          "oklch(0.95 0.015 188)"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Tinta Verde Azulada",
+        "canonical": "oklch(0.38 0.08 190)",
+        "tonalRamp": [
+          "oklch(0.15 0.039 190)",
+          "oklch(0.27 0.051 190)",
+          "oklch(0.39 0.064 190)",
+          "oklch(0.51 0.076 190)",
+          "oklch(0.63 0.072 190)",
+          "oklch(0.75 0.060 190)",
+          "oklch(0.87 0.047 190)",
+          "oklch(0.95 0.039 190)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Anillo de Foco",
+        "canonical": "oklch(0.62 0.13 188)",
+        "tonalRamp": [
+          "oklch(0.15 0.064 188)",
+          "oklch(0.27 0.084 188)",
+          "oklch(0.39 0.104 188)",
+          "oklch(0.51 0.123 188)",
+          "oklch(0.63 0.117 188)",
+          "oklch(0.75 0.097 188)",
+          "oklch(0.87 0.077 188)",
+          "oklch(0.95 0.064 188)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Suelo Frío",
+        "canonical": "oklch(0.972 0.006 200)",
+        "tonalRamp": [
+          "oklch(0.15 0.003 200)",
+          "oklch(0.27 0.004 200)",
+          "oklch(0.39 0.005 200)",
+          "oklch(0.51 0.006 200)",
+          "oklch(0.63 0.005 200)",
+          "oklch(0.75 0.004 200)",
+          "oklch(0.87 0.004 200)",
+          "oklch(0.95 0.003 200)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Superficie",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0.002 0)",
+          "oklch(0.27 0.003 0)",
+          "oklch(0.39 0.003 0)",
+          "oklch(0.51 0.004 0)",
+          "oklch(0.63 0.004 0)",
+          "oklch(0.75 0.003 0)",
+          "oklch(0.87 0.002 0)",
+          "oklch(0.95 0.002 0)"
+        ]
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Superficie 2",
+        "canonical": "oklch(0.985 0.004 200)",
+        "tonalRamp": [
+          "oklch(0.15 0.002 200)",
+          "oklch(0.27 0.003 200)",
+          "oklch(0.39 0.003 200)",
+          "oklch(0.51 0.004 200)",
+          "oklch(0.63 0.004 200)",
+          "oklch(0.75 0.003 200)",
+          "oklch(0.87 0.002 200)",
+          "oklch(0.95 0.002 200)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "oklch(0.25 0.02 225)",
+        "tonalRamp": [
+          "oklch(0.15 0.010 225)",
+          "oklch(0.27 0.013 225)",
+          "oklch(0.39 0.016 225)",
+          "oklch(0.51 0.019 225)",
+          "oklch(0.63 0.018 225)",
+          "oklch(0.75 0.015 225)",
+          "oklch(0.87 0.012 225)",
+          "oklch(0.95 0.010 225)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Tinta Secundaria",
+        "canonical": "oklch(0.46 0.02 225)",
+        "tonalRamp": [
+          "oklch(0.15 0.010 225)",
+          "oklch(0.27 0.013 225)",
+          "oklch(0.39 0.016 225)",
+          "oklch(0.51 0.019 225)",
+          "oklch(0.63 0.018 225)",
+          "oklch(0.75 0.015 225)",
+          "oklch(0.87 0.012 225)",
+          "oklch(0.95 0.010 225)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Tinta Terciaria",
+        "canonical": "oklch(0.56 0.015 225)",
+        "tonalRamp": [
+          "oklch(0.15 0.007 225)",
+          "oklch(0.27 0.010 225)",
+          "oklch(0.39 0.012 225)",
+          "oklch(0.51 0.014 225)",
+          "oklch(0.63 0.013 225)",
+          "oklch(0.75 0.011 225)",
+          "oklch(0.87 0.009 225)",
+          "oklch(0.95 0.007 225)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Línea",
+        "canonical": "oklch(0.91 0.008 210)",
+        "tonalRamp": [
+          "oklch(0.15 0.004 210)",
+          "oklch(0.27 0.005 210)",
+          "oklch(0.39 0.006 210)",
+          "oklch(0.51 0.008 210)",
+          "oklch(0.63 0.007 210)",
+          "oklch(0.75 0.006 210)",
+          "oklch(0.87 0.005 210)",
+          "oklch(0.95 0.004 210)"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Línea Fuerte",
+        "canonical": "oklch(0.84 0.012 210)",
+        "tonalRamp": [
+          "oklch(0.15 0.006 210)",
+          "oklch(0.27 0.008 210)",
+          "oklch(0.39 0.010 210)",
+          "oklch(0.51 0.011 210)",
+          "oklch(0.63 0.011 210)",
+          "oklch(0.75 0.009 210)",
+          "oklch(0.87 0.007 210)",
+          "oklch(0.95 0.006 210)"
+        ]
+      },
+      "status-blue": {
+        "role": "tertiary",
+        "displayName": "Azul Abierto",
+        "canonical": "oklch(0.50 0.14 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.069 255)",
+          "oklch(0.27 0.090 255)",
+          "oklch(0.39 0.111 255)",
+          "oklch(0.51 0.133 255)",
+          "oklch(0.63 0.126 255)",
+          "oklch(0.75 0.104 255)",
+          "oklch(0.87 0.083 255)",
+          "oklch(0.95 0.069 255)"
+        ]
+      },
+      "status-blue-bg": {
+        "role": "tertiary",
+        "displayName": "Fondo Azul Abierto",
+        "canonical": "oklch(0.955 0.025 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.012 255)",
+          "oklch(0.27 0.016 255)",
+          "oklch(0.39 0.020 255)",
+          "oklch(0.51 0.024 255)",
+          "oklch(0.63 0.022 255)",
+          "oklch(0.75 0.019 255)",
+          "oklch(0.87 0.015 255)",
+          "oklch(0.95 0.012 255)"
+        ]
+      },
+      "status-amber": {
+        "role": "tertiary",
+        "displayName": "Ámbar En Revisión",
+        "canonical": "oklch(0.50 0.11 65)",
+        "tonalRamp": [
+          "oklch(0.15 0.054 65)",
+          "oklch(0.27 0.071 65)",
+          "oklch(0.39 0.088 65)",
+          "oklch(0.51 0.104 65)",
+          "oklch(0.63 0.099 65)",
+          "oklch(0.75 0.082 65)",
+          "oklch(0.87 0.065 65)",
+          "oklch(0.95 0.054 65)"
+        ]
+      },
+      "status-amber-bg": {
+        "role": "tertiary",
+        "displayName": "Fondo Ámbar",
+        "canonical": "oklch(0.96 0.05 85)",
+        "tonalRamp": [
+          "oklch(0.15 0.025 85)",
+          "oklch(0.27 0.032 85)",
+          "oklch(0.39 0.040 85)",
+          "oklch(0.51 0.047 85)",
+          "oklch(0.63 0.045 85)",
+          "oklch(0.75 0.037 85)",
+          "oklch(0.87 0.030 85)",
+          "oklch(0.95 0.025 85)"
+        ]
+      },
+      "status-green": {
+        "role": "tertiary",
+        "displayName": "Verde Respondido",
+        "canonical": "oklch(0.47 0.11 150)",
+        "tonalRamp": [
+          "oklch(0.15 0.054 150)",
+          "oklch(0.27 0.071 150)",
+          "oklch(0.39 0.088 150)",
+          "oklch(0.51 0.104 150)",
+          "oklch(0.63 0.099 150)",
+          "oklch(0.75 0.082 150)",
+          "oklch(0.87 0.065 150)",
+          "oklch(0.95 0.054 150)"
+        ]
+      },
+      "status-green-bg": {
+        "role": "tertiary",
+        "displayName": "Fondo Verde",
+        "canonical": "oklch(0.955 0.04 150)",
+        "tonalRamp": [
+          "oklch(0.15 0.020 150)",
+          "oklch(0.27 0.026 150)",
+          "oklch(0.39 0.032 150)",
+          "oklch(0.51 0.038 150)",
+          "oklch(0.63 0.036 150)",
+          "oklch(0.75 0.030 150)",
+          "oklch(0.87 0.024 150)",
+          "oklch(0.95 0.020 150)"
+        ]
+      },
+      "status-gray": {
+        "role": "tertiary",
+        "displayName": "Gris Cerrado",
+        "canonical": "oklch(0.48 0.01 225)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 225)",
+          "oklch(0.27 0.006 225)",
+          "oklch(0.39 0.008 225)",
+          "oklch(0.51 0.009 225)",
+          "oklch(0.63 0.009 225)",
+          "oklch(0.75 0.007 225)",
+          "oklch(0.87 0.006 225)",
+          "oklch(0.95 0.005 225)"
+        ]
+      },
+      "status-gray-bg": {
+        "role": "tertiary",
+        "displayName": "Fondo Gris",
+        "canonical": "oklch(0.95 0.005 225)",
+        "tonalRamp": [
+          "oklch(0.15 0.002 225)",
+          "oklch(0.27 0.003 225)",
+          "oklch(0.39 0.004 225)",
+          "oklch(0.51 0.005 225)",
+          "oklch(0.63 0.004 225)",
+          "oklch(0.75 0.004 225)",
+          "oklch(0.87 0.003 225)",
+          "oklch(0.95 0.002 225)"
+        ]
+      },
+      "danger-red": {
+        "role": "tertiary",
+        "displayName": "Rojo Error",
+        "canonical": "oklch(0.52 0.17 25)",
+        "tonalRamp": [
+          "oklch(0.15 0.083 25)",
+          "oklch(0.27 0.109 25)",
+          "oklch(0.39 0.135 25)",
+          "oklch(0.51 0.161 25)",
+          "oklch(0.63 0.153 25)",
+          "oklch(0.75 0.127 25)",
+          "oklch(0.87 0.101 25)",
+          "oklch(0.95 0.083 25)"
+        ]
+      },
+      "danger-red-bg": {
+        "role": "tertiary",
+        "displayName": "Fondo Rojo",
+        "canonical": "oklch(0.96 0.025 25)",
+        "tonalRamp": [
+          "oklch(0.15 0.012 25)",
+          "oklch(0.27 0.016 25)",
+          "oklch(0.39 0.020 25)",
+          "oklch(0.51 0.024 25)",
+          "oklch(0.63 0.022 25)",
+          "oklch(0.75 0.019 25)",
+          "oklch(0.87 0.015 25)",
+          "oklch(0.95 0.012 25)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Título de página y titular de confirmación."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Panel de acceso, estados vacíos y de error."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Encabezados internos, marca, correo del buzón grande."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corriente."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Etiquetas de campo, títulos de panel, avisos, celdas de tabla."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Cabeceras de tabla, pills, términos de metadatos, contadores."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Solo folios y correos de seguimiento."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-sm",
+        "value": "0 1px 2px oklch(0.25 0.02 225 / 0.06)",
+        "purpose": "Reposo: paneles, tabla, botón secundario."
+      },
+      {
+        "name": "shadow-md",
+        "value": "0 1px 2px oklch(0.25 0.02 225 / 0.05), 0 4px 16px oklch(0.25 0.02 225 / 0.06)",
+        "purpose": "Tarjeta de confirmación."
+      },
+      {
+        "name": "shadow-auth",
+        "value": "0 1px 2px oklch(0.25 0.02 225 / 0.06), 0 12px 32px oklch(0.25 0.05 200 / 0.10)",
+        "purpose": "Panel de acceso sobre la banda del riel."
+      },
+      {
+        "name": "shadow-accent",
+        "value": "0 2px 8px oklch(0.30 0.06 190 / 0.10)",
+        "purpose": "Buzón grande."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px oklch(0.62 0.13 188 / 0.22)",
+        "purpose": "Halo de campos enfocados."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Curva única para transiciones de estado (160ms; filas de tabla 120ms)."
+      },
+      {
+        "name": "rise",
+        "value": "260ms, translateY(-4px) a 0 con opacidad",
+        "purpose": "Entrada de avisos."
+      },
+      {
+        "name": "pop",
+        "value": "420ms, scale(0.6) a 1",
+        "purpose": "Círculo de confirmación."
+      },
+      {
+        "name": "spin",
+        "value": "700ms linear infinite",
+        "purpose": "Spinner de botón ocupado."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "400px"
+      },
+      {
+        "name": "md",
+        "value": "760px"
+      },
+      {
+        "name": "lg",
+        "value": "960px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "La única acción primaria de cada pantalla.",
+      "html": "<button class=\"ds-btn ds-btn-primary\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg>Nuevo ticket</button>",
+      "css": ":host{--rail:oklch(0.28 0.015 235);--rail-hover:oklch(0.33 0.016 235);--rail-active:oklch(0.37 0.018 235);--rail-ink:oklch(0.97 0.004 235);--rail-muted:oklch(0.80 0.012 235);--accent:oklch(0.50 0.10 188);--accent-hover:oklch(0.44 0.10 188);--accent-soft:oklch(0.95 0.03 188);--accent-ink:oklch(0.38 0.08 190);--focus:oklch(0.62 0.13 188);--surface:oklch(1 0 0);--surface-2:oklch(0.985 0.004 200);--ink:oklch(0.25 0.02 225);--ink-2:oklch(0.46 0.02 225);--ink-3:oklch(0.56 0.015 225);--line:oklch(0.91 0.008 210);--line-strong:oklch(0.84 0.012 210);--r-md:8px;--r-lg:12px;--ease:cubic-bezier(0.16,1,0.3,1);--font:system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif;--mono:ui-monospace,\"Cascadia Mono\",Consolas,monospace;--shadow-sm:0 1px 2px oklch(0.25 0.02 225 / 0.06);font-family:var(--font);} .ds-icon{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border:1px solid transparent;border-radius:var(--r-md);font:inherit;font-weight:600;font-size:0.9375rem;cursor:pointer;white-space:nowrap;transition:background-color 160ms var(--ease),border-color 160ms var(--ease),color 160ms var(--ease);} .ds-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;} .ds-btn-primary{background:var(--accent);color:oklch(0.99 0 0);box-shadow:0 1px 2px oklch(0.30 0.06 190 / 0.25);} .ds-btn-primary:hover{background:var(--accent-hover);} .ds-btn-primary:active{background:oklch(0.40 0.09 188);}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acciones de apoyo, incluido Copiar en el buzón.",
+      "html": "<button class=\"ds-btn ds-btn-secondary\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/></svg>Copiar</button>",
+      "css": ":host{--rail:oklch(0.28 0.015 235);--rail-hover:oklch(0.33 0.016 235);--rail-active:oklch(0.37 0.018 235);--rail-ink:oklch(0.97 0.004 235);--rail-muted:oklch(0.80 0.012 235);--accent:oklch(0.50 0.10 188);--accent-hover:oklch(0.44 0.10 188);--accent-soft:oklch(0.95 0.03 188);--accent-ink:oklch(0.38 0.08 190);--focus:oklch(0.62 0.13 188);--surface:oklch(1 0 0);--surface-2:oklch(0.985 0.004 200);--ink:oklch(0.25 0.02 225);--ink-2:oklch(0.46 0.02 225);--ink-3:oklch(0.56 0.015 225);--line:oklch(0.91 0.008 210);--line-strong:oklch(0.84 0.012 210);--r-md:8px;--r-lg:12px;--ease:cubic-bezier(0.16,1,0.3,1);--font:system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif;--mono:ui-monospace,\"Cascadia Mono\",Consolas,monospace;--shadow-sm:0 1px 2px oklch(0.25 0.02 225 / 0.06);font-family:var(--font);} .ds-icon{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border:1px solid transparent;border-radius:var(--r-md);font:inherit;font-weight:600;font-size:0.9375rem;cursor:pointer;white-space:nowrap;transition:background-color 160ms var(--ease),border-color 160ms var(--ease),color 160ms var(--ease);} .ds-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;} .ds-btn-secondary{background:var(--surface);color:var(--ink);border-color:var(--line-strong);box-shadow:var(--shadow-sm);} .ds-btn-secondary:hover{background:var(--surface-2);border-color:oklch(0.76 0.015 210);}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Navegación secundaria junto a la acción primaria.",
+      "html": "<button class=\"ds-btn ds-btn-ghost\">Ir a mis tickets</button>",
+      "css": ":host{--rail:oklch(0.28 0.015 235);--rail-hover:oklch(0.33 0.016 235);--rail-active:oklch(0.37 0.018 235);--rail-ink:oklch(0.97 0.004 235);--rail-muted:oklch(0.80 0.012 235);--accent:oklch(0.50 0.10 188);--accent-hover:oklch(0.44 0.10 188);--accent-soft:oklch(0.95 0.03 188);--accent-ink:oklch(0.38 0.08 190);--focus:oklch(0.62 0.13 188);--surface:oklch(1 0 0);--surface-2:oklch(0.985 0.004 200);--ink:oklch(0.25 0.02 225);--ink-2:oklch(0.46 0.02 225);--ink-3:oklch(0.56 0.015 225);--line:oklch(0.91 0.008 210);--line-strong:oklch(0.84 0.012 210);--r-md:8px;--r-lg:12px;--ease:cubic-bezier(0.16,1,0.3,1);--font:system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif;--mono:ui-monospace,\"Cascadia Mono\",Consolas,monospace;--shadow-sm:0 1px 2px oklch(0.25 0.02 225 / 0.06);font-family:var(--font);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border:1px solid transparent;border-radius:var(--r-md);font:inherit;font-weight:600;font-size:0.9375rem;cursor:pointer;white-space:nowrap;transition:background-color 160ms var(--ease),border-color 160ms var(--ease),color 160ms var(--ease);} .ds-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;} .ds-btn-ghost{background:transparent;color:var(--ink-2);} .ds-btn-ghost:hover{background:oklch(0.94 0.008 210);color:var(--ink);}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo con etiqueta encima y foco en acento.",
+      "html": "<label class=\"ds-field\"><span>Asunto</span><input class=\"ds-input\" placeholder=\"Resume tu problema en una línea\"></label>",
+      "css": ":host{--rail:oklch(0.28 0.015 235);--rail-hover:oklch(0.33 0.016 235);--rail-active:oklch(0.37 0.018 235);--rail-ink:oklch(0.97 0.004 235);--rail-muted:oklch(0.80 0.012 235);--accent:oklch(0.50 0.10 188);--accent-hover:oklch(0.44 0.10 188);--accent-soft:oklch(0.95 0.03 188);--accent-ink:oklch(0.38 0.08 190);--focus:oklch(0.62 0.13 188);--surface:oklch(1 0 0);--surface-2:oklch(0.985 0.004 200);--ink:oklch(0.25 0.02 225);--ink-2:oklch(0.46 0.02 225);--ink-3:oklch(0.56 0.015 225);--line:oklch(0.91 0.008 210);--line-strong:oklch(0.84 0.012 210);--r-md:8px;--r-lg:12px;--ease:cubic-bezier(0.16,1,0.3,1);--font:system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif;--mono:ui-monospace,\"Cascadia Mono\",Consolas,monospace;--shadow-sm:0 1px 2px oklch(0.25 0.02 225 / 0.06);font-family:var(--font);} .ds-field{display:grid;gap:6px;max-width:360px;} .ds-field span{font-size:0.8125rem;font-weight:600;color:var(--ink);} .ds-input{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r-md);padding:9px 12px;min-height:40px;caret-color:var(--accent);transition:border-color 160ms var(--ease),box-shadow 160ms var(--ease);} .ds-input::placeholder{color:var(--ink-3);} .ds-input:hover{border-color:oklch(0.74 0.015 210);} .ds-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px oklch(0.62 0.13 188 / 0.22);}"
+    },
+    {
+      "name": "Rail Navigation",
+      "kind": "nav",
+      "refersTo": "rail-nav-item",
+      "description": "Riel pizarra con ítem activo e icono en destello verde azulado.",
+      "html": "<nav class=\"ds-rail\"><a href=\"#\" aria-current=\"page\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><polyline points=\"22 12 16 12 14 15 10 15 8 12 2 12\"/><path d=\"M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"/></svg>Mis tickets</a><a href=\"#\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg>Nuevo ticket</a></nav>",
+      "css": ":host{--rail:oklch(0.28 0.015 235);--rail-hover:oklch(0.33 0.016 235);--rail-active:oklch(0.37 0.018 235);--rail-ink:oklch(0.97 0.004 235);--rail-muted:oklch(0.80 0.012 235);--accent:oklch(0.50 0.10 188);--accent-hover:oklch(0.44 0.10 188);--accent-soft:oklch(0.95 0.03 188);--accent-ink:oklch(0.38 0.08 190);--focus:oklch(0.62 0.13 188);--surface:oklch(1 0 0);--surface-2:oklch(0.985 0.004 200);--ink:oklch(0.25 0.02 225);--ink-2:oklch(0.46 0.02 225);--ink-3:oklch(0.56 0.015 225);--line:oklch(0.91 0.008 210);--line-strong:oklch(0.84 0.012 210);--r-md:8px;--r-lg:12px;--ease:cubic-bezier(0.16,1,0.3,1);--font:system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif;--mono:ui-monospace,\"Cascadia Mono\",Consolas,monospace;--shadow-sm:0 1px 2px oklch(0.25 0.02 225 / 0.06);font-family:var(--font);} .ds-icon{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;} .ds-rail{display:flex;flex-direction:column;gap:2px;width:248px;padding:14px;background:var(--rail);} .ds-rail a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:var(--r-md);color:var(--rail-muted);text-decoration:none;font-weight:500;transition:background-color 160ms var(--ease),color 160ms var(--ease);} .ds-rail a:hover{background:var(--rail-hover);color:var(--rail-ink);} .ds-rail a[aria-current=page]{background:var(--rail-active);color:var(--rail-ink);box-shadow:inset 0 0 0 1px oklch(1 0 0 / 0.06);} .ds-rail a[aria-current=page] .ds-icon{color:oklch(0.82 0.10 180);} .ds-rail a:focus-visible{outline:2px solid oklch(0.82 0.10 180);outline-offset:2px;}"
+    },
+    {
+      "name": "Status Pills",
+      "kind": "chip",
+      "refersTo": "pill-abierto",
+      "description": "Cuatro estados semánticos fijos con punto en currentColor.",
+      "html": "<span class=\"ds-pill ds-a\">Abierto</span> <span class=\"ds-pill ds-r\">En revisión</span> <span class=\"ds-pill ds-g\">Respondido</span> <span class=\"ds-pill ds-c\">Cerrado</span>",
+      "css": ":host{--rail:oklch(0.28 0.015 235);--rail-hover:oklch(0.33 0.016 235);--rail-active:oklch(0.37 0.018 235);--rail-ink:oklch(0.97 0.004 235);--rail-muted:oklch(0.80 0.012 235);--accent:oklch(0.50 0.10 188);--accent-hover:oklch(0.44 0.10 188);--accent-soft:oklch(0.95 0.03 188);--accent-ink:oklch(0.38 0.08 190);--focus:oklch(0.62 0.13 188);--surface:oklch(1 0 0);--surface-2:oklch(0.985 0.004 200);--ink:oklch(0.25 0.02 225);--ink-2:oklch(0.46 0.02 225);--ink-3:oklch(0.56 0.015 225);--line:oklch(0.91 0.008 210);--line-strong:oklch(0.84 0.012 210);--r-md:8px;--r-lg:12px;--ease:cubic-bezier(0.16,1,0.3,1);--font:system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif;--mono:ui-monospace,\"Cascadia Mono\",Consolas,monospace;--shadow-sm:0 1px 2px oklch(0.25 0.02 225 / 0.06);font-family:var(--font);} .ds-pill{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;font-size:0.75rem;font-weight:600;} .ds-pill::before{content:\"\";width:6px;height:6px;border-radius:50%;background:currentColor;} .ds-a{background:oklch(0.955 0.025 255);color:oklch(0.50 0.14 255);} .ds-r{background:oklch(0.96 0.05 85);color:oklch(0.50 0.11 65);} .ds-g{background:oklch(0.955 0.04 150);color:oklch(0.47 0.11 150);} .ds-c{background:oklch(0.95 0.005 225);color:oklch(0.48 0.01 225);}"
+    },
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Contenedor base: borde de 1px, radio 12px, sombra de reposo.",
+      "html": "<section class=\"ds-panel\"><h2>Descripción</h2><p>No me llegó la factura de octubre.</p></section>",
+      "css": ":host{--rail:oklch(0.28 0.015 235);--rail-hover:oklch(0.33 0.016 235);--rail-active:oklch(0.37 0.018 235);--rail-ink:oklch(0.97 0.004 235);--rail-muted:oklch(0.80 0.012 235);--accent:oklch(0.50 0.10 188);--accent-hover:oklch(0.44 0.10 188);--accent-soft:oklch(0.95 0.03 188);--accent-ink:oklch(0.38 0.08 190);--focus:oklch(0.62 0.13 188);--surface:oklch(1 0 0);--surface-2:oklch(0.985 0.004 200);--ink:oklch(0.25 0.02 225);--ink-2:oklch(0.46 0.02 225);--ink-3:oklch(0.56 0.015 225);--line:oklch(0.91 0.008 210);--line-strong:oklch(0.84 0.012 210);--r-md:8px;--r-lg:12px;--ease:cubic-bezier(0.16,1,0.3,1);--font:system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif;--mono:ui-monospace,\"Cascadia Mono\",Consolas,monospace;--shadow-sm:0 1px 2px oklch(0.25 0.02 225 / 0.06);font-family:var(--font);} .ds-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-sm);color:var(--ink);font-size:0.9375rem;line-height:1.5;} .ds-panel h2{margin:0 0 12px;font-size:0.8125rem;font-weight:650;color:var(--ink-2);} .ds-panel p{margin:0;}"
+    },
+    {
+      "name": "Tracking Mailbox",
+      "kind": "custom",
+      "refersTo": "mailbox-lg",
+      "description": "Componente firma: correo de seguimiento en mono con botón Copiar.",
+      "html": "<div class=\"ds-mailbox\"><span class=\"ds-mi\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg></span><span class=\"ds-addr\">caso-0001-nyptff@dami.lat</span><button class=\"ds-copy\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/></svg>Copiar</button></div>",
+      "css": ":host{--rail:oklch(0.28 0.015 235);--rail-hover:oklch(0.33 0.016 235);--rail-active:oklch(0.37 0.018 235);--rail-ink:oklch(0.97 0.004 235);--rail-muted:oklch(0.80 0.012 235);--accent:oklch(0.50 0.10 188);--accent-hover:oklch(0.44 0.10 188);--accent-soft:oklch(0.95 0.03 188);--accent-ink:oklch(0.38 0.08 190);--focus:oklch(0.62 0.13 188);--surface:oklch(1 0 0);--surface-2:oklch(0.985 0.004 200);--ink:oklch(0.25 0.02 225);--ink-2:oklch(0.46 0.02 225);--ink-3:oklch(0.56 0.015 225);--line:oklch(0.91 0.008 210);--line-strong:oklch(0.84 0.012 210);--r-md:8px;--r-lg:12px;--ease:cubic-bezier(0.16,1,0.3,1);--font:system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif;--mono:ui-monospace,\"Cascadia Mono\",Consolas,monospace;--shadow-sm:0 1px 2px oklch(0.25 0.02 225 / 0.06);font-family:var(--font);} .ds-icon{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;} .ds-mailbox{display:flex;align-items:center;gap:10px;padding:12px 12px 12px 16px;border:1.5px solid var(--accent);border-radius:var(--r-md);background:var(--surface);box-shadow:0 2px 8px oklch(0.30 0.06 190 / 0.10);max-width:560px;} .ds-mi{display:grid;color:var(--accent-ink);} .ds-addr{flex:1;min-width:0;font-family:var(--mono);font-size:1.0625rem;font-weight:600;letter-spacing:-0.01em;color:var(--ink);user-select:all;} .ds-copy{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;font:inherit;font-size:0.8125rem;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r-md);box-shadow:var(--shadow-sm);cursor:pointer;transition:background-color 160ms var(--ease);} .ds-copy:hover{background:var(--surface-2);} .ds-copy:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El mostrador en orden",
+    "overview": "Dami Soporte es una mesa de ayuda estándar ejecutada con precisión: un riel lateral gris pizarra neutro sostiene la marca y la navegación, y a su derecha un área de trabajo blanca y fría donde vive el trabajo real (tabla de tickets, formulario, detalle, confirmación). El sistema se mide contra Zendesk y Freshdesk: nada decorativo, todo legible, cada pantalla con un título, una acción primaria y un contenido.\n\nLa densidad es media. Las superficies son planas con borde fino y una sombra apenas perceptible; el riel pizarra da la estructura oscura sin color de marca; el verde azulado vive solo en el acento (acciones primarias y selección) y en el cuadro de la marca; el resto del color son cuatro estados semánticos. El dato estrella del producto, el correo de seguimiento `@dami.lat`, se presenta siempre en monoespaciada dentro del bloque de buzón con su botón Copiar.",
+    "keyCharacteristics": [
+      "Riel lateral de 248px en gris pizarra neutro frío; en móvil se convierte en barra superior del mismo color.",
+      "Fondo blanco frío, paneles blancos con borde de 1px y radio de 12px.",
+      "El verde azulado aparece solo en el acento de acción, la selección y la marca; el resto del color es semántico.",
+      "Pila tipográfica del sistema, pesos intermedios (550 a 680) y tracking negativo en títulos.",
+      "Iconos Lucide en trazo de 2px, inline como `<symbol>` SVG.",
+      "Monoespaciada solo para identificadores: folio y correo de seguimiento."
+    ],
+    "rules": [
+      {
+        "name": "The One Action Color Rule",
+        "body": "El acento verde azulado medio pertenece a la acción primaria y a la selección. No se usa para decorar, ni para titulares, ni para fondos de sección.",
+        "section": "colors"
+      },
+      {
+        "name": "The Semantic Status Rule",
+        "body": "Azul, ámbar, verde y gris significan exclusivamente Abierto, En revisión, Respondido y Cerrado (rojo: error y prioridad Alta). Un color de estado nunca aparece como decoración.",
+        "section": "colors"
+      },
+      {
+        "name": "The Neutral Rail Rule",
+        "body": "El riel, la barra móvil y la banda de acceso son pizarra neutra; el verde azulado nunca rellena el riel, solo aparece en él como cuadro de marca, icono activo y foco. El área de trabajo permanece blanca y fría.",
+        "section": "colors"
+      },
+      {
+        "name": "The Identifier Mono Rule",
+        "body": "La monoespaciada se reserva a identificadores que el cliente copia o cita (folio y correo). Nunca para texto corriente ni etiquetas.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Numbers Rule",
+        "body": "Folios y cifras usan `font-variant-numeric: tabular-nums` (clase `num`).",
+        "section": "typography"
+      },
+      {
+        "name": "The Border-First Rule",
+        "body": "Todo contenedor se define primero por su borde de 1px (`line`); la sombra solo acompaña, nunca sustituye al borde.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** mantener el pizarra neutro (`rail`) en el riel, la barra móvil y la banda de acceso, y el área de trabajo en `ground`/`surface`.",
+      "**Do** dar a cada pantalla un solo botón primario (`accent`), colocado arriba a la derecha de la cabecera o al final del formulario.",
+      "**Do** presentar el correo de seguimiento siempre en el bloque de buzón, en monoespaciada y con su botón Copiar.",
+      "**Do** usar iconos Lucide en trazo de 2px como `<symbol>` SVG inline, a 16-18px junto a texto.",
+      "**Do** animar estados en 160ms con `cubic-bezier(0.16, 1, 0.3, 1)` y respetar `prefers-reduced-motion`.",
+      "**Do** definir contenedores con borde de 1px `line` y radio de 12px."
+    ],
+    "donts": [
+      "**Don't** rellenar el riel, la barra móvil o la banda de acceso con verde azulado.",
+      "**Don't** usar el acento verde azulado ni los colores de estado como decoración, fondo de sección o color de titular.",
+      "**Don't** construir portales de tarjetas iguales en rejilla para la navegación; el riel y la tabla son la estructura.",
+      "**Don't** presentar un formulario suelto sin riel, título de página ni contexto.",
+      "**Don't** usar la monoespaciada fuera de folios y correos.",
+      "**Don't** sustituir el borde de un contenedor por sombra sola ni añadir sombras fuertes o desplazadas."
+    ]
+  }
+}
