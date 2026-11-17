@@ -1,0 +1,48 @@
+{% extends "admin/layout.html" %}
+{% from "_macros.html" import avatar %}
+{% block title %}Users &amp; passwords{% endblock %}
+{% block section %}Users &amp; passwords{% endblock %}
+{% block admin_body %}
+<p class="muted note">
+  Demo accounts keep their fake password so you can sign in as them. Accounts created through the sign-up form
+  are stored hashed and cannot be read, not even by an admin.
+</p>
+<div class="table-wrap">
+  <table class="list static-rows">
+    <thead><tr><th>User</th><th>Email</th><th>Role</th><th>Password</th><th>Requested</th><th>Assigned</th><th>Since</th></tr></thead>
+    <tbody>
+    {% for u in users %}
+      <tr>
+        <td>{{ avatar(u.name, u.id, 'xs') }} <strong>{{ u.name }}</strong>{% if u.id == g.user.id %} <span class="muted">(you)</span>{% endif %}</td>
+        <td>{{ u.email }}</td>
+        <td>
+          {% if u.id == g.user.id %}
+            <span class="badge role-{{ u.role }}">{{ u.role|role_label }}</span>
+          {% else %}
+            <form method="post" action="{{ url_for('admin_set_role', uid=u.id) }}" class="role-form">
+              <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+              <select name="role" aria-label="Role of {{ u.name }}">
+                {% for key, label in ROLES.items() %}<option value="{{ key }}" {{ 'selected' if u.role == key }}>{{ label }}</option>{% endfor %}
+              </select>
+              <button class="btn btn-secondary btn-sm" type="submit">Save</button>
+            </form>
+          {% endif %}
+        </td>
+        <td>
+          {% if u.demo_password %}
+            <span class="secret" data-secret="{{ u.demo_password }}">••••••••</span>
+            <button type="button" class="btn btn-ghost btn-sm" data-reveal>Show</button>
+          {% else %}
+            <span class="muted">Hidden (hashed)</span>
+          {% endif %}
+        </td>
+        <td class="num">{{ u.requested }}</td>
+        <td class="num">{{ u.assigned }}</td>
+        <td class="muted">{{ u.created_at|dt }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p><button type="button" class="btn btn-secondary" data-reveal-all>Show all passwords</button></p>
+{% endblock %}

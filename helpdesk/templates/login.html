@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Sign in{% endblock %}
+{% block body_class %}auth{% endblock %}
+{% block content %}
+<main class="auth-wrap">
+  <section class="auth-aside">
+    <span class="brand-mark big">✓</span>
+    <h1>Customer support,<br>organized by tickets.</h1>
+    <ul>
+      <li>Requests from email, live chat, WhatsApp and the web form in one place</li>
+      <li>Kanban pipeline by stage to prioritize, assign and track work</li>
+      <li>Every conversation stays attached to its ticket</li>
+    </ul>
+  </section>
+  <section class="auth-card">
+    <h2>Sign in</h2>
+    <p class="muted">Use your agent or customer account.</p>
+    {% if error %}<div class="flash flash-error" role="alert">{{ error }}</div>{% endif %}
+    <form method="post" novalidate>
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <label class="field"><span>Email</span>
+        <input type="email" name="email" value="{{ email }}" autocomplete="username" required autofocus></label>
+      <label class="field"><span>Password</span>
+        <input type="password" name="password" autocomplete="current-password" required></label>
+      <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+    {% if settings.allow_signup == '1' %}<p class="muted center">New customer? <a href="{{ url_for('register') }}">Create an account</a></p>{% endif %}
+  </section>
+</main>
+{% endblock %}

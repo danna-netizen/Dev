@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% from "_macros.html" import avatar, stars, stage_badge %}
+{% block title %}{{ t.id|ref }} {{ t.subject }}{% endblock %}
+{% block content %}
+<main class="page wide">
+  <div class="control-panel">
+    <div class="cp-row">
+      <h1><a class="crumb-link" href="{{ url_for('board') }}">Helpdesk</a> <span class="crumb">/ {{ t.id|ref }}</span></h1>
+      <span class="spacer"></span>
+      <a class="btn btn-ghost" href="{{ url_for('board') }}">← Back to tickets</a>
+    </div>
+  </div>
+
+  <div class="statusbar" role="group" aria-label="Stage">
+    {% for key, label in STAGES %}
+      <form method="post" action="{{ url_for('agent_stage', tid=t.id) }}">
+        <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <input type="hidden" name="stage" value="{{ key }}">
+        <button type="submit" class="step step-{{ key }} {{ 'current' if t.stage == key }}" {% if t.stage == key %}aria-current="step"{% endif %}>{{ label }}</button>
+      </form>
+    {% endfor %}
+  </div>
+
+  <div class="ticket-layout">
+    <div class="ticket-main">
+      <section class="sheet">
+        <h2 class="ticket-title">{{ t.subject }}</h2>
+        <p class="ticket-meta">Opened {{ t.created_at|dt }} via {{ t.channel }}</p>
+        <form method="post" action="{{ url_for('agent_update', tid=t.id) }}" class="props">
+          <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+          <label class="field inline"><span>Requested by</span>
+            <div class="static">{{ avatar(t.customer_name, t.customer_id, 'xs') }} {{ t.customer_name }} <small class="muted">&lt;{{ t.customer_email }}&gt;</small></div></label>
+          <label class="field inline"><span>Assigned to</span>
+            <select name="assignee_id">
+              <option value="0" {{ 'selected' if not t.assignee_id }}>Unassigned</option>
+              {% for p in people %}<option value="{{ p.id }}" {{ 'selected' if t.assignee_id == p.id }}>{{ p.name }}{{ ' (' ~ (p.role|role_label) ~ ')' if p.role != 'customer' }}</option>{% endfor %}
+            </select></label>
+          <label class="field inline"><span>Team</span>
+            <select name="team_id">
+              {% for tm in teams %}<option value="{{ tm.id }}" {{ 'selected' if t.team_id == tm.id }}>{{ tm.name }}</option>{% endfor %}
+            </select></label>
+          <label class="field inline"><span>Priority</span>
+            <select name="priority">
+              {% for k, v in PRIORITIES.items() %}<option value="{{ k }}" {{ 'selected' if t.priority == k }}>{{ '★' * k if k else '–' }} {{ v }}</option>{% endfor %}
+            </select></label>
+          <div class="field inline"><span>Channel</span><div class="static">{{ t.channel }}</div></div>
+          <div class="props-actions"><button class="btn btn-primary" type="submit">Save</button></div>
+        </form>
+      </section>
+
+      <section class="sheet chatter" aria-label="Conversation">
+        <h3>Conversation</h3>
+        <ol class="thread">
+          {% for m in messages %}
+            {% if m.kind == 'log' %}
+              <li class="log"><span>{{ m.body }}</span> · {{ m.created_at|dt }} · {{ m.author_name }}</li>
+            {% else %}
+              <li class="msg {{ 'note' if m.kind == 'note' }} {{ 'from-customer' if m.author_role == 'customer' }}">
+                {{ avatar(m.author_name, m.author_id, 'md') }}
+                <div class="bubble">
+                  <div class="msg-head"><strong>{{ m.author_name }}</strong>
+                    {% if m.kind == 'note' %}<span class="badge note-badge">Internal note</span>{% endif %}
+                    <span class="muted">{{ m.created_at|dt }}</span></div>
+                  <p>{{ m.body }}</p>
+                </div>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+        <span id="chatter-end"></span>
+        <form method="post" action="{{ url_for('agent_message', tid=t.id) }}" class="composer">
+          <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+          <label class="sr-only" for="body">Write a reply</label>
+          <textarea id="body" name="body" rows="3" placeholder="Write a reply to the customer, or log an internal note…" required></textarea>
+          <div class="composer-actions">
+            <button class="btn btn-primary" type="submit" name="kind" value="message">Send message</button>
+            <button class="btn btn-secondary" type="submit" name="kind" value="note">Log note</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <aside class="ticket-side">
+      <section class="sheet">
+        <h3>Requested by</h3>
+        <div class="side-person">{{ avatar(t.customer_name, t.customer_id, 'lg') }}
+          <div><strong>{{ t.customer_name }}</strong><br><a href="mailto:{{ t.customer_email }}">{{ t.customer_email }}</a></div></div>
+      </section>
+      <section class="sheet">
+        <h3>Details</h3>
+        <dl class="kv">
+          <dt>Stage</dt><dd>{{ stage_badge(t.stage) }}</dd>
+          <dt>Priority</dt><dd>{{ stars(t.priority) }} {{ PRIORITIES[t.priority] }}</dd>
+          <dt>Created</dt><dd>{{ t.created_at|dt }}</dd>
+          <dt>Last update</dt><dd>{{ t.updated_at|ago }}</dd>
+          {% if t.closed_at %}<dt>Closed</dt><dd>{{ t.closed_at|dt }}</dd>{% endif %}
+        </dl>
+      </section>
+    </aside>
+  </div>
+</main>
+{% endblock %}

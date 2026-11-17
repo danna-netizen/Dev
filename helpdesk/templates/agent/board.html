@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% from "_macros.html" import avatar, stars, stage_badge %}
+{% block title %}Helpdesk Overview{% endblock %}
+{% block content %}
+<main class="page wide">
+  <div class="control-panel">
+    <div class="cp-row">
+      <h1>Helpdesk <span class="crumb">/ {{ 'Tickets' if view == 'list' else 'Overview' }}</span></h1>
+      <a class="btn btn-primary" href="{{ url_for('agent_new_ticket') }}">+ New</a>
+      <form class="search" method="get" role="search">
+        {% if team %}<input type="hidden" name="team" value="{{ team }}">{% endif %}
+        {% if mine %}<input type="hidden" name="mine" value="1">{% endif %}
+        <input type="hidden" name="view" value="{{ view }}">
+        <input type="search" name="q" value="{{ q }}" placeholder="Search tickets or customers…" aria-label="Search">
+      </form>
+      <div class="view-switch" role="group" aria-label="View">
+        <a class="{{ 'active' if view == 'kanban' }}" href="{{ url_for('board', team=team, q=q or None, mine='1' if mine else None) }}" title="Kanban">▦ Kanban</a>
+        <a class="{{ 'active' if view == 'list' }}" href="{{ url_for('board', team=team, q=q or None, mine='1' if mine else None, view='list') }}" title="List">☰ List</a>
+      </div>
+    </div>
+    <div class="cp-row filters">
+      <a class="chip {{ 'active' if not team }}" href="{{ url_for('board', q=q or None, mine='1' if mine else None, view=view) }}">All teams</a>
+      {% for tm in teams %}
+        <a class="chip {{ 'active' if team == tm.id }}" href="{{ url_for('board', team=tm.id, q=q or None, mine='1' if mine else None, view=view) }}">{{ tm.name }}</a>
+      {% endfor %}
+      <span class="sep"></span>
+      <a class="chip {{ 'active' if mine }}" href="{{ url_for('board', team=team, q=q or None, mine=None if mine else '1', view=view) }}">My tickets</a>
+    </div>
+  </div>
+
+  <section class="stats" aria-label="Summary">
+    <div class="stat"><strong>{{ stats.open }}</strong><span>Open tickets</span></div>
+    <div class="stat {{ 'warn' if stats.unassigned }}"><strong>{{ stats.unassigned }}</strong><span>Unassigned</span></div>
+    <div class="stat {{ 'danger' if stats.urgent }}"><strong>{{ stats.urgent }}</strong><span>Urgent</span></div>
+    <div class="stat good"><strong>{{ stats.solved_week }}</strong><span>Solved this week</span></div>
+  </section>
+
+  {% if view == 'list' %}
+    <div class="table-wrap">
+      <table class="list">
+        <thead><tr><th>Ticket</th><th>Subject</th><th>Requested by</th><th>Team</th><th>Channel</th><th>Priority</th><th>Assigned to</th><th>Stage</th><th>Updated</th></tr></thead>
+        <tbody>
+        {% for t in rows %}
+          <tr onclick="location.href='{{ url_for('agent_ticket', tid=t.id) }}'">
+            <td class="mono">{{ t.id|ref }}</td>
+            <td><a href="{{ url_for('agent_ticket', tid=t.id) }}">{{ t.subject }}</a></td>
+            <td>{{ t.customer_name }}</td>
+            <td>{{ t.team_name }}</td>
+            <td>{{ t.channel }}</td>
+            <td>{{ stars(t.priority) }}</td>
+            <td>{% if t.assignee_name %}{{ avatar(t.assignee_name, t.assignee_id, 'xs') }} {{ t.assignee_name }}{% else %}<span class="muted">Unassigned</span>{% endif %}</td>
+            <td>{{ stage_badge(t.stage) }}</td>
+            <td class="muted">{{ t.updated_at|ago }}</td>
+          </tr>
+        {% else %}
+          <tr><td colspan="9" class="empty">No tickets match these filters.</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="kanban">
+      {% for key, label in STAGES %}
+      <section class="column" data-stage="{{ key }}">
+        <header class="col-head"><h2>{{ label }}</h2><span class="count">{{ columns[key]|length }}</span></header>
+        <div class="cards">
+          {% for t in columns[key] %}
+          <a class="card prio-{{ t.priority }}" draggable="true" data-id="{{ t.id }}" href="{{ url_for('agent_ticket', tid=t.id) }}">
+            <div class="card-title">{{ t.subject }}</div>
+            <div class="card-sub"><span class="mono">{{ t.id|ref }}</span> · {{ t.customer_name }}</div>
+            <div class="card-tags"><span class="tag">{{ t.team_name }}</span><span class="tag tag-channel">{{ t.channel }}</span></div>
+            <div class="card-foot">
+              {{ stars(t.priority) }}
+              <span class="muted small">{{ t.updated_at|ago }}</span>
+              <span class="spacer"></span>
+              {% if t.assignee_name %}{{ avatar(t.assignee_name, t.assignee_id, 'sm') }}{% else %}<span class="avatar sm empty" title="Unassigned">?</span>{% endif %}
+            </div>
+          </a>
+          {% else %}
+          <p class="col-empty">No tickets</p>
+          {% endfor %}
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+    <p class="hint">Tip: drag a card to another column to change its stage.</p>
+  {% endif %}
+</main>
+{% endblock %}

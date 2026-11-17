@@ -1,10 +1,10 @@
-{% extends "layout_app.html" if g.user else "layout_auth.html" %}
+{% extends "base.html" %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-<section class="empty">
-  <p class="empty__code num">{{ code }}</p>
+<main class="page narrow center-box">
+  <p class="error-code">{{ code }}</p>
   <h1>{{ title }}</h1>
-  <p>{{ message }}</p>
-  <a class="btn btn--primary" href="{{ url_for('index') }}">Volver al inicio</a>
-</section>
+  <p class="muted">{{ message }}</p>
+  <p><a class="btn btn-primary" href="{{ url_for('index') }}">Back to home</a></p>
+</main>
 {% endblock %}

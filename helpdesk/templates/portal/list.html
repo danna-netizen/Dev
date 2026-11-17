@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% from "_macros.html" import avatar, stage_badge %}
+{% block title %}My tickets{% endblock %}
+
+{% macro ticket_table(rows, other_label, other_name, other_id) %}
+<div class="table-wrap">
+  <table class="list">
+    <thead><tr><th>Ticket</th><th>Subject</th><th>Topic</th><th>{{ other_label }}</th><th>Stage</th><th>Last update</th></tr></thead>
+    <tbody>
+    {% for t in rows %}
+      {% set person = t[other_name] %}
+      <tr onclick="location.href='{{ url_for('my_ticket', tid=t.id) }}'">
+        <td class="mono">{{ t.id|ref }}</td>
+        <td><a href="{{ url_for('my_ticket', tid=t.id) }}">{{ t.subject }}</a></td>
+        <td>{{ t.team_name }}</td>
+        <td>{% if person %}{{ avatar(person, t[other_id], 'xs') }} {{ person }}{% else %}<span class="muted">Waiting for someone</span>{% endif %}</td>
+        <td>{{ stage_badge(t.stage) }}</td>
+        <td class="muted">{{ t.updated_at|ago }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endmacro %}
+
+{% block content %}
+<main class="page">
+  <div class="control-panel">
+    <div class="cp-row"><h1>My tickets</h1><span class="spacer"></span>
+      <a class="btn btn-primary" href="{{ url_for('my_new_ticket') }}">+ New ticket</a></div>
+  </div>
+
+  {% if assigned %}
+    <h2 class="section-title">Assigned to me <span class="count">{{ assigned|length }}</span></h2>
+    {{ ticket_table(assigned, 'Requested by', 'customer_name', 'customer_id') }}
+  {% endif %}
+
+  <h2 class="section-title">Opened by me <span class="count">{{ requested|length }}</span></h2>
+  {% if requested %}
+    {{ ticket_table(requested, 'Assigned to', 'assignee_name', 'assignee_id') }}
+  {% else %}
+  <section class="sheet center-box">
+    <h2>No tickets yet</h2>
+    <p class="muted">When you need something, open a ticket and pick who should handle it.</p>
+    <a class="btn btn-primary" href="{{ url_for('my_new_ticket') }}">Open your first ticket</a>
+  </section>
+  {% endif %}
+</main>
+{% endblock %}

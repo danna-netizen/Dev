@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% from "_macros.html" import field_error %}
+{% block title %}New ticket{% endblock %}
+{% block content %}
+<main class="page">
+  <div class="control-panel"><div class="cp-row"><h1><a class="crumb-link" href="{{ url_for('board') }}">Helpdesk</a> <span class="crumb">/ New</span></h1></div></div>
+  <section class="sheet">
+    <form method="post" novalidate class="form-grid">
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <label class="field full"><span>Subject</span>
+        <input name="subject" value="{{ form.get('subject', '') }}" placeholder="e.g. Cannot access my account" required autofocus>{{ field_error(errors, 'subject') }}</label>
+      <label class="field"><span>Requested by</span>
+        <select name="customer_id" required>
+          <option value="">Select a person…</option>
+          {% for p in people %}<option value="{{ p.id }}" {{ 'selected' if form.get('customer_id') == p.id|string }}>{{ p.name }} ({{ p.role|role_label }})</option>{% endfor %}
+        </select>{{ field_error(errors, 'customer_id') }}</label>
+      <label class="field"><span>Assigned to</span>
+        <select name="assignee_id">
+          <option value="0">Unassigned</option>
+          {% for p in people %}<option value="{{ p.id }}" {{ 'selected' if form.get('assignee_id') == p.id|string }}>{{ p.name }} ({{ p.role|role_label }})</option>{% endfor %}
+        </select></label>
+      <label class="field"><span>Team</span>
+        <select name="team_id" required>
+          <option value="">Select a team…</option>
+          {% for tm in teams %}<option value="{{ tm.id }}" {{ 'selected' if form.get('team_id') == tm.id|string }}>{{ tm.name }}</option>{% endfor %}
+        </select>{{ field_error(errors, 'team_id') }}</label>
+      <label class="field"><span>Priority</span>
+        <select name="priority">{% for k, v in PRIORITIES.items() %}<option value="{{ k }}" {{ 'selected' if form.get('priority') == k|string }}>{{ v }}</option>{% endfor %}</select>{{ field_error(errors, 'priority') }}</label>
+      <label class="field"><span>Channel</span>
+        <select name="channel">{% for c in channels %}<option {{ 'selected' if form.get('channel') == c }}>{{ c }}</option>{% endfor %}</select>{{ field_error(errors, 'channel') }}</label>
+      <label class="field full"><span>Description</span>
+        <textarea name="description" rows="6" required>{{ form.get('description', '') }}</textarea>{{ field_error(errors, 'description') }}</label>
+      <div class="full actions">
+        <button class="btn btn-primary" type="submit">Create ticket</button>
+        <a class="btn btn-ghost" href="{{ url_for('board') }}">Discard</a>
+      </div>
+    </form>
+  </section>
+</main>
+{% endblock %}

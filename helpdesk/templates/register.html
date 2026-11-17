@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "_macros.html" import field_error %}
+{% block title %}Create account{% endblock %}
+{% block body_class %}auth{% endblock %}
+{% block content %}
+<main class="auth-wrap">
+  <section class="auth-aside">
+    <span class="brand-mark big">✓</span>
+    <h1>Open a ticket and<br>follow it to the end.</h1>
+    <ul>
+      <li>Describe your problem once</li>
+      <li>Chat with our agents on the ticket</li>
+      <li>See its stage at any time</li>
+    </ul>
+  </section>
+  <section class="auth-card">
+    <h2>Create your account</h2>
+    <form method="post" novalidate>
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <label class="field"><span>Full name</span>
+        <input name="name" value="{{ form.get('name', '') }}" autocomplete="name" required autofocus>{{ field_error(errors, 'name') }}</label>
+      <label class="field"><span>Email</span>
+        <input type="email" name="email" value="{{ form.get('email', '') }}" autocomplete="email" required>{{ field_error(errors, 'email') }}</label>
+      <label class="field"><span>Password</span>
+        <input type="password" name="password" autocomplete="new-password" required>{{ field_error(errors, 'password') }}</label>
+      <label class="field"><span>Confirm password</span>
+        <input type="password" name="confirm" autocomplete="new-password" required>{{ field_error(errors, 'confirm') }}</label>
+      <button class="btn btn-primary btn-block" type="submit">Create account</button>
+    </form>
+    <p class="muted center">Already have an account? <a href="{{ url_for('login') }}">Sign in</a></p>
+  </section>
+</main>
+{% endblock %}

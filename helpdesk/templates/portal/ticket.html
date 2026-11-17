@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% from "_macros.html" import avatar, stage_badge %}
+{% block title %}{{ t.id|ref }} {{ t.subject }}{% endblock %}
+{% block content %}
+<main class="page">
+  <div class="control-panel">
+    <div class="cp-row">
+      <h1><a class="crumb-link" href="{{ url_for('my_tickets') }}">My tickets</a> <span class="crumb">/ {{ t.id|ref }}</span></h1>
+      <span class="spacer"></span>{{ stage_badge(t.stage) }}
+    </div>
+  </div>
+
+  {% set is_assignee = t.assignee_id == g.user.id %}
+  <section class="sheet">
+    <h2 class="ticket-title">{{ t.subject }}</h2>
+    <p class="ticket-meta">Opened {{ t.created_at|dt }} by {{ 'you' if t.customer_id == g.user.id else t.customer_name }} · Topic: {{ t.team_name }} ·
+      {% if t.assignee_name %}Assigned to {{ 'you' if is_assignee else t.assignee_name }}{% else %}Waiting for someone to pick it up{% endif %}</p>
+    {% if is_assignee and t.stage in ('new', 'in_progress') %}
+      <div class="composer-actions">
+        {% if t.stage == 'new' %}
+        <form method="post" action="{{ url_for('my_stage', tid=t.id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+          <input type="hidden" name="stage" value="in_progress"><button class="btn btn-secondary" type="submit">Start working</button></form>
+        {% endif %}
+        <form method="post" action="{{ url_for('my_stage', tid=t.id) }}"><input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+          <input type="hidden" name="stage" value="solved"><button class="btn btn-primary" type="submit">Mark as done</button></form>
+      </div>
+    {% endif %}
+    {% if t.stage == 'solved' %}<div class="flash flash-success">This ticket is done. Reply below if something is still missing and it will be reopened.</div>{% endif %}
+    {% if t.stage == 'cancelled' %}<div class="flash flash-info">This ticket was closed. Reply below to reopen it.</div>{% endif %}
+  </section>
+
+  <section class="sheet chatter" aria-label="Conversation">
+    <h3>Conversation</h3>
+    <ol class="thread">
+      {% for m in messages %}
+        <li class="msg {{ 'from-customer' if m.author_id == t.customer_id }}">
+          {{ avatar(m.author_name, m.author_id, 'md') }}
+          <div class="bubble">
+            <div class="msg-head"><strong>{{ 'You' if m.author_id == g.user.id else m.author_name }}{% if m.author_role == 'agent' %} <small class="muted">(Support)</small>{% endif %}</strong>
+              <span class="muted">{{ m.created_at|dt }}</span></div>
+            <p>{{ m.body }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+    <span id="chatter-end"></span>
+    <form method="post" action="{{ url_for('my_reply', tid=t.id) }}" class="composer">
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <label class="sr-only" for="body">Your reply</label>
+      <textarea id="body" name="body" rows="3" placeholder="Write a reply…" required></textarea>
+      <div class="composer-actions"><button class="btn btn-primary" type="submit">Send</button></div>
+    </form>
+  </section>
+</main>
+{% endblock %}

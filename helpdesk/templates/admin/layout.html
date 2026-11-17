@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="page wide">
+  <div class="control-panel">
+    <div class="cp-row"><h1>Administration <span class="crumb">/ {% block section %}{% endblock %}</span></h1></div>
+    <nav class="tabs" aria-label="Admin sections">
+      <a class="{{ 'active' if request.endpoint == 'admin_users' }}" href="{{ url_for('admin_users') }}">Users &amp; passwords</a>
+      <a class="{{ 'active' if request.endpoint == 'admin_privileges' }}" href="{{ url_for('admin_privileges') }}">Privileges</a>
+      <a class="{{ 'active' if request.endpoint == 'admin_settings' }}" href="{{ url_for('admin_settings') }}">Settings</a>
+    </nav>
+  </div>
+  {% block admin_body %}{% endblock %}
+</main>
+{% endblock %}

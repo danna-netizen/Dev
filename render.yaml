@@ -1,6 +1,6 @@
 ﻿services:
   - type: web
-    name: dami-soporte
+    name: helpdesk-demo
     runtime: python
     plan: free
     rootDir: helpdesk

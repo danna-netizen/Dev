@@ -1,0 +1,28 @@
+{% extends "admin/layout.html" %}
+{% block title %}Privileges{% endblock %}
+{% block section %}Privileges{% endblock %}
+{% block admin_body %}
+<p class="muted note">What each role can do. Change someone's role under <a href="{{ url_for('admin_users') }}">Users &amp; passwords</a>.</p>
+<div class="table-wrap">
+  <table class="list static-rows matrix">
+    <thead>
+      <tr>
+        <th>Permission</th>
+        <th class="c"><span class="badge role-admin">Admin</span><br><small class="muted">{{ counts.get('admin', 0) }} users</small></th>
+        <th class="c"><span class="badge role-agent">Agent</span><br><small class="muted">{{ counts.get('agent', 0) }} users</small></th>
+        <th class="c"><span class="badge role-customer">Customer</span><br><small class="muted">{{ counts.get('customer', 0) }} users</small></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for label, admin, agent, customer in permissions %}
+      <tr>
+        <td>{{ label }}</td>
+        {% for ok in (admin, agent, customer) %}
+          <td class="c">{% if ok %}<span class="yes" aria-label="Allowed">✓</span>{% else %}<span class="no" aria-label="Not allowed">–</span>{% endif %}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_macros.html" import field_error %}
+{% block title %}New ticket{% endblock %}
+{% block content %}
+<main class="page">
+  <div class="control-panel"><div class="cp-row"><h1><a class="crumb-link" href="{{ url_for('my_tickets') }}">My tickets</a> <span class="crumb">/ New</span></h1></div></div>
+  <section class="sheet">
+    <form method="post" novalidate class="form-grid">
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <label class="field full"><span>Subject</span>
+        <input name="subject" value="{{ form.get('subject', '') }}" placeholder="Summarize your request in one sentence" required autofocus>{{ field_error(errors, 'subject') }}</label>
+      <label class="field"><span>Topic</span>
+        <select name="team_id" required>
+          <option value="">Select a topic…</option>
+          {% for tm in teams %}<option value="{{ tm.id }}" {{ 'selected' if form.get('team_id') == tm.id|string }}>{{ tm.name }}</option>{% endfor %}
+        </select>{{ field_error(errors, 'team_id') }}</label>
+      <label class="field"><span>Assign to</span>
+        <select name="assignee_id">
+          <option value="0">Anyone available</option>
+          {% for p in people %}<option value="{{ p.id }}" {{ 'selected' if form.get('assignee_id') == p.id|string }}>{{ p.name }} ({{ 'Support agent' if p.role == 'agent' else ('Admin' if p.role == 'admin' else 'Team member') }})</option>{% endfor %}
+        </select>{{ field_error(errors, 'assignee_id') }}</label>
+      <label class="field full"><span>Description</span>
+        <textarea name="description" rows="7" placeholder="What you need, when you need it, and any details that help." required>{{ form.get('description', '') }}</textarea>{{ field_error(errors, 'description') }}</label>
+      <div class="full actions">
+        <button class="btn btn-primary" type="submit">Submit ticket</button>
+        <a class="btn btn-ghost" href="{{ url_for('my_tickets') }}">Cancel</a>
+      </div>
+    </form>
+  </section>
+</main>
+{% endblock %}

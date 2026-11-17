@@ -1,0 +1,34 @@
+{% extends "admin/layout.html" %}
+{% from "_macros.html" import field_error %}
+{% block title %}Settings{% endblock %}
+{% block section %}Settings{% endblock %}
+{% block admin_body %}
+<section class="sheet">
+  <form method="post" novalidate class="form-grid">
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    <label class="field"><span>Company name</span>
+      <input name="company_name" value="{{ form.company_name }}" required>{{ field_error(errors, 'company_name') }}
+      <small class="muted">Shown in the top bar and the page footer.</small></label>
+    <label class="field"><span>Support email</span>
+      <input type="email" name="support_email" value="{{ form.support_email }}" required>{{ field_error(errors, 'support_email') }}
+      <small class="muted">Shown in the page footer.</small></label>
+    <label class="field"><span>Default priority for new portal tickets</span>
+      <select name="default_priority">
+        {% for k, v in PRIORITIES.items() %}<option value="{{ k }}" {{ 'selected' if form.default_priority|string == k|string }}>{{ v }}</option>{% endfor %}
+      </select>{{ field_error(errors, 'default_priority') }}</label>
+    <div class="field">
+      <span>Public sign-up</span>
+      <label class="check"><input type="checkbox" name="allow_signup" {{ 'checked' if form.allow_signup == '1' }}> Let new customers create their own account</label>
+    </div>
+    <fieldset class="field full channels">
+      <legend>Enabled channels</legend>
+      {% for c in CHANNELS %}
+        <label class="check"><input type="checkbox" name="channels" value="{{ c }}" {{ 'checked' if c in form.channels }}> {{ c }}</label>
+      {% endfor %}
+      {{ field_error(errors, 'channels') }}
+      <small class="muted">Channels offered when an agent creates a ticket.</small>
+    </fieldset>
+    <div class="full actions"><button class="btn btn-primary" type="submit">Save settings</button></div>
+  </form>
+</section>
+{% endblock %}
