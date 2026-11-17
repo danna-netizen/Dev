@@ -1,0 +1,13 @@
+﻿services:
+  - type: web
+    name: dami-soporte
+    runtime: python
+    plan: free
+    rootDir: helpdesk
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.12.10
